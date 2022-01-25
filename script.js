@@ -1,9 +1,11 @@
-const mail = {
-    from : "pengirim@dicoding.com",
-    sendMessage: function (msg, to) {
-        console.log(`you send: ${msg} to ${to} from ${this.from}`);
-    }
-}
+const myAge = birthday => {
+    const birtday = new Date(birthday);
+    const today = Date.now();
 
-console.log(mail.from);
-mail.sendMessage('apa kabar', 'penerima@dicoding.com')
+    const diff_ms = today - birtday.getTime();
+    const diffDate = new Date(diff_ms);
+
+    return diffDate.getFullYear() - 1970;
+};
+
+console.log(myAge('1998-09-23'));
