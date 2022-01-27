@@ -17,6 +17,5 @@ const students = [
     }
 ];
 
-const eligibleForScholarshipStudents = students.filter((students) => students.score > 85);
-
-console.log(eligibleForScholarshipStudents);
+const totalScore = students.reduce((acc, student) => acc + student.score, 0);
+console.log(totalScore);
