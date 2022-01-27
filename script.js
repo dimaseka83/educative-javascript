@@ -38,18 +38,32 @@ class Animal {
 }
 
 class Rabbit extends Animal{
-    constructor(name){
-      this.name = name;
-
+    constructor(name, age, isMammal){
+        super(name, age, isMammal);
+    }
+    eat(){
+        return `${this.name} sedang makan`
     }
 }
 
+class Eagle extends Animal{
+    constructor(name, age, isMammal){
+        super(name, age, isMammal);
+    }
+    fly(){
+        return `${this.name} sedang terbang`
+    }
+}
 
+const myRabbit = new Rabbit('Labi', 2, true);
+const myEagle = new Eagle('Elo', 4, false);
+console.log(myRabbit.eat());
+console.log(myEagle.fly());
 
 /**
  * Jangan hapus kode di bawah ini
  */
 
-module.exports = {
-  Animal, Rabbit, Eagle, myRabbit, myEagle,
-};
+// module.exports = {
+//   Animal, Rabbit, Eagle, myRabbit, myEagle,
+// };
