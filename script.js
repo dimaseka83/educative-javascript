@@ -1,18 +1,22 @@
-const names = ['Harry', 'Ron', 'Jeff', 'Thomas'];
-
-const arrayMap = (arr, action) => {
-    const loopTrough = (arr, action, newArray = [], index = 0) => {
-        const item = arr[index];
-        if (!item) return newArray;
-        return loopTrough(arr,action, [...newArray, action(arr[index])], index + 1);
+const students = [
+    {
+        name: 'Harry',
+        score: 60,
+    },
+    {
+        name: 'James',
+        score: 88,
+    },
+    {
+        name: 'Ron',
+        score: 90,
+    },
+    {
+        name: 'Bethy',
+        score: 75,
     }
+];
 
-    return loopTrough(arr, action);
-}
+const eligibleForScholarshipStudents = students.filter((students) => students.score > 85);
 
-const newNames = arrayMap(names, (name) => `${name}!`);
-
-console.log({
-    names,
-    newNames
-});
+console.log(eligibleForScholarshipStudents);
