@@ -1,21 +1,13 @@
-const students = [
-    {
-      name: 'Harry',
-      score: 60,
-    },
-    {
-      name: 'James',
-      score: 88,
-    },
-    {
-      name: 'Ron',
-      score: 90,
-    },
-    {
-      name: 'Bethy',
-      score: 75,
-    }
-  ];
+// String
+const months = ['March', 'Jan', 'Feb', 'Dec'];
+const sortM = months.sort();
+console.log(sortM);
 
-  const findJames = students.find(student => student.name === 'James');
-  console.log(findJames);
+// Number
+const array1 = [1,30,4,15,7,2,9,12,22,25,17,20,10];
+const compareNumber = (a,b) => {
+    return a - b;
+}
+
+const sorting = array1.sort(compareNumber);
+console.log(sorting);
