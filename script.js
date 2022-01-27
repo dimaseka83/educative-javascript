@@ -1,4 +1,21 @@
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const even = array.some(element => element % 2 === 0);
+const students = [
+    {
+      name: 'Harry',
+      score: 60,
+    },
+    {
+      name: 'James',
+      score: 88,
+    },
+    {
+      name: 'Ron',
+      score: 90,
+    },
+    {
+      name: 'Bethy',
+      score: 75,
+    }
+  ];
 
-console.log(even);
+  const findJames = students.find(student => student.name === 'James');
+  console.log(findJames);
