@@ -1,13 +1,15 @@
-const orderCoffe = callback => {
-  let coffee = null;
-  console.log("Sedang membuat kopi, silahkan tunggu...");
-
-  setTimeout(() => {
-    coffee = "Kopi sudah jadi!";
-    callback(coffee);
-  }, 3000);
+const executorFunction = (resolve, reject) => {
+  const isCoffeMakerReady = false;
+  if (isCoffeMakerReady) {
+      resolve("Kopi berhasil dibuat");
+  }else{
+    reject("Mesin kopi tidak bisa digunakan");
+  }
 }
 
-orderCoffe(coffee => {
-  console.log(coffee);
-})
+const makeCoffe = () => {
+  return new Promise(executorFunction);
+}
+
+const coffeePromise = makeCoffe();
+console.log(coffeePromise);
