@@ -1,11 +1,13 @@
-try {
-  console.log("Awal blok try");
-  errorCode;
-  console.log("Akhir blok try");
-} catch (error) {
-    console.log(error.name);
-    console.log(error.message);
-    console.log(error.stack);
-} finally {
-  console.log("Akan tetap dieksekusi");
+const orderCoffe = callback => {
+  let coffee = null;
+  console.log("Sedang membuat kopi, silahkan tunggu...");
+
+  setTimeout(() => {
+    coffee = "Kopi sudah jadi!";
+    callback(coffee);
+  }, 3000);
 }
+
+orderCoffe(coffee => {
+  console.log(coffee);
+})
