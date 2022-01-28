@@ -1,5 +1,5 @@
 const stock = {
-  coffeBeans: 2,
+  coffeBeans: 250,
   water: 1000
 }
 
@@ -21,4 +21,4 @@ const handleFailure = rejectionReason => {
   console.log(rejectionReason);
 }
 
-checkStock().then(handleSuccess).catch(handleFailure);
+checkStock().then(handleSuccess, handleFailure);
