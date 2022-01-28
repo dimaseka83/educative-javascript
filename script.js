@@ -1,15 +1,24 @@
-const executorFunction = (resolve, reject) => {
-  const isCoffeMakerReady = false;
-  if (isCoffeMakerReady) {
-      resolve("Kopi berhasil dibuat");
-  }else{
-    reject("Mesin kopi tidak bisa digunakan");
-  }
+const stock = {
+  coffeBeans: 250,
+  water: 1000
 }
 
-const makeCoffe = () => {
-  return new Promise(executorFunction);
+const checkStock = () => {
+  return new Promise((resolve, reject) => {
+    if (stock.coffeBeans >= 16 && stock.water >= 250) {
+        resolve("Stok cukup. Bisa membuat kopi");
+    }else {
+      reject("Stok tidak cukup");
+    }
+  })
 }
 
-const coffeePromise = makeCoffe();
-console.log(coffeePromise);
+const handleSuccess = resolvedValue => {
+  console.log(resolvedValue);
+}
+
+const handleFailure = rejectionReason => {
+  console.log(rejectionReason);
+}
+
+checkStock().then(handleSuccess, handleFailure);
