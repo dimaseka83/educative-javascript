@@ -1,57 +1,42 @@
-const state = {
-  stock: {
-    coffeeBeans: 250,
-    water: 1000,
-  },
-  isCoffeeMachineBusy: true,
+class Character{
+  constructor(name){
+    this.name = name;
+    this.health = 100;
+  }
 }
 
-const checkAvailability = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (!state.isCoffeeMachineBusy) {
-          resolve("Mesin kopi siap digunakan.");
-      }else{
-        reject("Maaf, mesin sedang sibuk.");
-      }
-    }, 1000);
-  })
+class Shooter extends Character{
+  constructor(name){
+    super(name);
+  }
+
+  shoot(){
+    console.log(`${this.name}: prepare to die!`);
+    this.health--;
+  }
+
+  getHealth(){
+    console.log(this.health);
+  }
 }
 
-const checkStock = () => {
-    return new Promise((resolve, reject) => {
-      state.isCoffeeMachineBusy = true;
-      setTimeout(() => {
-        if (state.stock.coffeeBeans >= 16 && state.stock.water >= 250) {
-            resolve("Stok cukup. Bisa membuat kopi.");
-        }else{
-          reject("Stok tidak cukup!");
-        }
-      }, 1500);
-    })
+class Caster extends Character{
+  constructor(name){
+    super(name);
+  }
+
+  cast(){
+    console.log(`${this.name}: Avada Kedavra`);
+    this.health--;
+  }
+
+  getHealth(){
+    console.log(this.health);
+  }
 }
 
-const brewCoffee = () => {
-  console.log("Membuatkan kopi Anda...");
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("Kopi sudah siap!")
-    }, 2000);
-  })
-}
+Dumbledore = new Caster("Albus Percival Wulfric")
+Dumbledore.cast();
 
-function makeEspresso() {
-    checkAvailability().then((value) => {
-      console.log(value);
-      return checkStock();
-    }).then((value) => {
-      console.log(value);
-      return brewCoffee();
-    }).then((value) => {
-      console.log(value);
-    }).catch((rejectedReason) => {
-      console.log(rejectedReason);
-    })
-}
-
-makeEspresso();
+DarthVader = new Shooter("Anakin");
+DarthVader.shoot();
